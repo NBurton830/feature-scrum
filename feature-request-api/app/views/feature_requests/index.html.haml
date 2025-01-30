@@ -1,0 +1,19 @@
+%h1 Feature Requests
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Description
+      %th Status
+      %th Actions
+  %tbody
+    - @feature_requests.each do |feature_request|
+      %tr
+        %td= feature_request.title
+        %td= feature_request.description
+        %td= feature_request.status
+        %td
+          = link_to 'Show', feature_request_path(feature_request)
+          = link_to 'Edit', edit_feature_request_path(feature_request)
+          = link_to 'Destroy', feature_request_path(feature_request), method: :delete, data: { confirm: 'Are you sure?' }
